@@ -16,15 +16,16 @@ namespace MVCSpinutech.Controllers
         public IActionResult Check(string inputNumber)
         {
             int num = 0;
-            inputNumber = inputNumber.Replace(",", "");
+            
             try
             {
+                inputNumber = inputNumber.Replace(",", "");
                 num = int.Parse(inputNumber);
             }
             catch
             {
                 //Given a little more time, there is a better way to do this (with a javascript function in the view)
-                ViewBag.ReturnValue = "Please enter a valid number"; 
+                ViewBag.ReturnValue = "Input was not a valid integer.  Please enter a valid number"; 
                 return View("Index");
             }
 
